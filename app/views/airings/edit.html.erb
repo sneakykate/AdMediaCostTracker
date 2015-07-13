@@ -1,0 +1,28 @@
+<h2> Edit Airing</h2>
+
+<!-- add a form for adding a network -->
+<%= form_for @airing, url:"/airings/#{@airing.id}" do |f| %>
+
+  
+  <%= f.label "Show" %>
+  <%= f.collection_select :show_id, Show.all, :id, :showname %> <span class = "small_link" >need to <a href="<%=new_show_path%>">Create A Show</a> first?</span>
+  <%= f.hidden_field :airing_id, value: @airing.id %>
+  <%= f.hidden_field :client_id, value: @client %>
+  <br><br>
+  <br><br>
+  <%= f.label "Date" %>
+  <%= f.date_field :airdate %>
+  <br><br>
+  <%= f.label "Gross Cost" %>
+  <%= f.number_field :gross_cost %>
+  <br><br>
+  <%= f.label "Net Cost" %>
+  <%= f.number_field :net_cost %>
+  <br><br>
+  
+  <br>
+  <br>
+
+  <%= f.submit 'Submit Change', :class => 'btn btn-primary btn-lg' %>
+
+<% end %>
