@@ -23,6 +23,26 @@ class AiringsController < ApplicationController
     end
   end
 
+  def edit
+    @airing = Airing.find(params[:id])
+    @client = @airing.client.id
+  end
+
+  def update
+    @airing = Airing.find(params[:id])
+    @client = @airing.client.id
+    if @airing.update(airing_params)
+      redirect_to client_path(@client)
+    else 
+      render :edit
+    end
+  end
+
+  def destroy
+    @airing = Airing.find(params[:id])
+    @airing.destroy
+    redirect_to '/'
+  end
 private
 
   def airing_params
