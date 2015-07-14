@@ -53,3 +53,4 @@ gem 'carrierwave' # for file uploads
 gem 'fog' # for uploading to AWS
 
 gem 'sidekiq'
+gem 'fullcalendar-rails'
